@@ -44,9 +44,9 @@ def apply_clearance(cart)
 end
 
 def checkout(cart, coupons)
-  cart = []
-  coupons = []
- total = 0
+  cart: []
+  coupons: []
+total = 0
   cart = consolidate_cart(cart)
   
   if cart.length == 1
@@ -70,4 +70,10 @@ def checkout(cart, coupons)
       total += (details[:price]*details[:count])
     end
   end
+  
+
+  if total > 100
+    total = total*(0.90)
+  end
+  total
 end
